@@ -12,11 +12,8 @@ void quit(int sig) {
 }
 
 int main(int argc, char** argv) {
-	ros::init(argc, argv, "keypub");
-	ros::NodeHandle n;
 
-	ros::Publisher key_pub = n.advertise<std_msgs::Char>("keys",1000);
-	ros::Rate loop_rate(10);
+	/* TODO: initialise the node and publisher */
 
 	// here we get the terminal ready to record keyboard input
 	tcgetattr(kfd, &cooked);		
@@ -28,20 +25,12 @@ int main(int argc, char** argv) {
 
 	puts("Reading keyboard.");
 	
-	int c;
-	while(ros::ok()) {
-		c = 0;
-		if (read(kfd, &c, 1) < 0) {
-			perror("read():");
-			exit(-1);
-		}
-		if (c) {	
-			std_msgs::Char c_msg;
-			c_msg.data = c;
-			key_pub.publish(c_msg);
-		}
-		
-	}
+	int c = 0;
+	// reads the keyboard input and puts the character into c
+	read(kfd, &c, 1);
+
+	/* TODO: continuously read keyboard input and publish if we receive something */
+	
 	quit(0);
 	return 0;
 }
