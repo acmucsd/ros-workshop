@@ -1,5 +1,5 @@
 # ACM x Robosub ROS Workshops
-This repository contains all the ROS packages for the ROS workshop series, and will hopefully give you a basic idea of how ROS works. \
+This repository contains all the ROS packages for the ROS workshop series, and will hopefully give you a basic idea of how ROS works. 
 
 Slides for Part 1 of this workshop series can be found [here](https://acmurl.com/rosslides).
 
